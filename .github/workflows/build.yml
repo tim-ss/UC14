@@ -44,6 +44,6 @@ jobs:
         shell: powershell
         run: |
           dotnet tool install --global dotnet-coverage
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tim-ss_UC7" /o:"tim-ss" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"tim-ss_UC14" /o:"tim-ss" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           dotnet build UC14\UC14.sln --no-incremental
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
