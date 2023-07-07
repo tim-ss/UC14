@@ -16,7 +16,7 @@ namespace UC14.WebApp.Models.Middleware
         public async Task Invoke(HttpContext context)
         {
             var culture = context.Request.Query["culture"].ToString();
-            if (!string.IsNullOrEmpty(culture) && !supportedCultures.Any(c => c.Name.ToLower() == culture.ToLower()))
+            if (!string.IsNullOrEmpty(culture) && !supportedCultures.Exists(c => c.Name.ToLower() == culture.ToLower()))
             {
                 context.Response.Redirect("Home/CultureNotSupportedError");
             }
