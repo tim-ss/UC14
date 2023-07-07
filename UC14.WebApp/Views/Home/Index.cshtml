@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization;
+
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Localizer["Header"]</h1>
+    <p>@Localizer["Message"]</p>
+    <strong>@Localizer["CurrentCultureTitle"]: @CultureInfo.CurrentCulture.ToString()</strong>
+
+    <h4>@Localizer["DatesExampleTitle"]:</h4>
+    @foreach (var date in Model.Dates)
+    {
+        <p>@date.ToString()</p>
+    }
+
+    <h4>@Localizer["NumbersExampleTitle"]:</h4>
+    @foreach (var number in Model.Numbers)
+    {
+        <p>@number.ToString("n")</p>
+    }
+
+    <h4>@Localizer["MeasurementUnitsExampleTitle"]:</h4>
+    <p>@Localizer["DistanceTitle"]: @Model.Distance @Model.MeasurementUnitsSet.Distance</p>
+    <p>@Localizer["WeightTitle"]: @Model.Weight @Model.MeasurementUnitsSet.Weight</p>
+    <p>@Localizer["VolumeTitle"]: @Model.Volume @Model.MeasurementUnitsSet.Volume</p>
+
+    <h4>Switch localization:</h4>
+    <p><a href="?culture=en-US">en-EN</a> | <a href="?culture=uk-UA">uk-UA</a> | <a href="?culture=fr-FR">fr-FR</a> | <a href="?culture=pl-PL">pl-PL</a></p>
+</div>
+
+
